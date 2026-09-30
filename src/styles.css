@@ -142,3 +142,57 @@
     color: var(--color-foreground);
   }
 }
+
+/* telebirr demo wallet tokens */
+:root {
+  --tb-green: #8cc63f;
+  --tb-green-dark: #6fa82a;
+  --tb-green-soft: #e3efd0;
+  --tb-blue: #1a8cd8;
+  --tb-blue-soft: #c9dff0;
+  --tb-yellow: #f7b500;
+  --tb-orange: #f5a623;
+  --tb-bg: #f2f2f2;
+  --tb-surface: #ffffff;
+  --tb-text: #1d1d1d;
+  --tb-muted: #8a8a8a;
+  --tb-line: #e6e6e6;
+  --tb-danger: #e5484d;
+  --tb-overlay: rgb(0 0 0 / 0.45);
+  --tb-frame: #1c1f22;
+  --tb-banner: #0b3d24;
+  --tb-banner-2: #0f5a33;
+}
+@theme inline {
+  --color-tb-green: var(--tb-green);
+  --color-tb-green-dark: var(--tb-green-dark);
+  --color-tb-green-soft: var(--tb-green-soft);
+  --color-tb-blue: var(--tb-blue);
+  --color-tb-blue-soft: var(--tb-blue-soft);
+  --color-tb-yellow: var(--tb-yellow);
+  --color-tb-orange: var(--tb-orange);
+  --color-tb-bg: var(--tb-bg);
+  --color-tb-surface: var(--tb-surface);
+  --color-tb-text: var(--tb-text);
+  --color-tb-muted: var(--tb-muted);
+  --color-tb-line: var(--tb-line);
+  --color-tb-danger: var(--tb-danger);
+  --color-tb-overlay: var(--tb-overlay);
+  --color-tb-frame: var(--tb-frame);
+  --font-app: "Nunito Sans", system-ui, sans-serif;
+}
+.tap { transition: transform .08s, filter .08s; -webkit-tap-highlight-color: transparent; }
+.tap:active { transform: scale(.96); filter: brightness(.94); }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+.tb-waves { background-image: repeating-radial-gradient(circle at 80% 20%, rgb(255 255 255 / .09) 0 1px, transparent 1px 14px); }
+@keyframes tb-up { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes tb-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes tb-pop { from { opacity: 0; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes tb-in { from { transform: translateX(24px); opacity: .4; } to { transform: none; opacity: 1; } }
+@keyframes tb-shake { 0%,100% { transform: none; } 25% { transform: translateX(-8px); } 75% { transform: translateX(8px); } }
+.anim-up { animation: tb-up .25s ease-out; }
+.anim-fade { animation: tb-fade .2s ease-out; }
+.anim-pop { animation: tb-pop .18s ease-out; }
+.anim-in { animation: tb-in .2s ease-out; }
+.anim-shake { animation: tb-shake .3s; }
