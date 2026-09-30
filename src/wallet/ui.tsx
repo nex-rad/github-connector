@@ -59,7 +59,7 @@ export function TopBar({ title, onBack, right }: { title: string; onBack: () => 
 
 export function Banner({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative flex h-[90px] items-center overflow-hidden rounded-lg bg-[linear-gradient(120deg,#0b3d24,#0f5a33_55%,#0b3d24)] px-5 ${className}`}>
+    <div className={`relative flex h-[90px] items-center overflow-hidden rounded-lg bg-[linear-gradient(120deg,var(--tb-banner),var(--tb-banner-2)_55%,var(--tb-banner))] px-5 ${className}`}>
       <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle,rgb(255_255_255/.5)_1px,transparent_1px)] [background-size:12px_12px]" />
       <div className="relative">
         <div className="text-[11px] font-bold text-tb-green">✳ ዘመን</div>
@@ -68,7 +68,7 @@ export function Banner({ className = "" }: { className?: string }) {
         </div>
         <div className="mt-1 text-[7px] text-tb-surface/80">Where Ethiopia Shops Digitally</div>
       </div>
-      <div className="relative ml-auto h-[78px] w-10 rotate-6 rounded-md border-2 border-tb-frame bg-[linear-gradient(#f5a623,#8cc63f)]" />
+      <div className="relative ml-auto h-[78px] w-10 rotate-6 rounded-md border-2 border-tb-frame bg-[linear-gradient(var(--tb-orange),var(--tb-green))]" />
     </div>
   );
 }

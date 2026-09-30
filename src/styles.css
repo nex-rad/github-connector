@@ -160,6 +160,8 @@
   --tb-danger: #e5484d;
   --tb-overlay: rgb(0 0 0 / 0.45);
   --tb-frame: #1c1f22;
+  --tb-banner: #0b3d24;
+  --tb-banner-2: #0f5a33;
 }
 @theme inline {
   --color-tb-green: var(--tb-green);
