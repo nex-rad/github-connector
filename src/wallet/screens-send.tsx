@@ -72,7 +72,7 @@ export function AmountScreen({ nav, contact }: { nav: Nav; contact: Contact }) {
     setAmt((a) => {
       if (k === "del") return a.slice(0, -1);
       if (k === "." && a.includes(".")) return a;
-      if (a.includes(".") && a.split(".")[1].length >= 2) return a;
+      if (a.includes(".") && (a.split(".")[1] ?? "").length >= 2) return a;
       if (a === "0" && k !== ".") return k;
       if (a.replace(".", "").length >= 7) return a;
       return (a === "" && k === "." ? "0" : a) + k;

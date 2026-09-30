@@ -16,7 +16,7 @@ export type Tx = {
   disasterFee: number;
   total: number;
   time: string;
-  note?: string;
+  note?: string | undefined;
 };
 
 export type Contact = { name: string; phone: string; kind: "yellow" | "ring" };
