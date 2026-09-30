@@ -42,7 +42,7 @@ function Router() {
     }),
     [],
   );
-  const cur = stack[stack.length - 1];
+  const cur = stack[stack.length - 1] as Screen;
   const render = useCallback(() => {
     switch (cur.name) {
       case "home": return <HomeScreen nav={nav} />;
