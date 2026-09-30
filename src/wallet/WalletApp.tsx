@@ -67,9 +67,10 @@ function Router() {
 export function WalletApp() {
   return (
     <div className="flex min-h-[100dvh] items-center justify-center bg-tb-frame font-app sm:py-6">
-      <div className="relative h-[100dvh] w-full overflow-hidden bg-tb-surface sm:h-[844px] sm:w-[390px] sm:rounded-[36px] sm:ring-[10px] sm:ring-tb-text">
+      <div className="relative h-[100dvh] w-full overflow-hidden bg-tb-surface sm:h-[844px] sm:w-[390px] sm:rounded-[8px] sm:ring-[8px] sm:ring-tb-text">
         <WalletProvider>
-          <Router />
+          <div className="h-[calc(100%-16px)]"><Router /></div>
+          <div className="absolute bottom-0 left-0 right-0 flex h-4 items-center justify-center bg-tb-nav"><span className="h-1 w-[35%] rounded-full bg-tb-nav-handle" /></div>
         </WalletProvider>
       </div>
     </div>

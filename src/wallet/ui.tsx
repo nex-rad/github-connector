@@ -1,5 +1,8 @@
 import { ArrowLeft, BatteryFull, Delete, Signal, Wifi } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
+import ethioLogo from "@/assets/ethio-ref.png.asset.json";
+import telebirrLogo from "@/assets/telebirr-ref.png.asset.json";
+import zemenBanner from "@/assets/zemen-success-banner.jpg.asset.json";
 
 export function StatusBar({ dark = false }: { dark?: boolean }) {
   const [t, setT] = useState("");
@@ -24,23 +27,9 @@ export function StatusBar({ dark = false }: { dark?: boolean }) {
 
 export function BrandBar() {
   return (
-    <div className="flex h-9 shrink-0 items-center justify-between bg-tb-surface px-4">
-      <div className="flex items-center gap-1">
-        <div className="h-5 w-7 rounded-full border-[3px] border-tb-green border-r-tb-blue" />
-        <div className="leading-none">
-          <div className="text-[11px] font-extrabold tracking-tight text-tb-text">ethio telecom</div>
-          <div className="text-[5px] text-tb-muted">ETHIOPIA · DEMO</div>
-        </div>
-      </div>
-      <div className="flex items-center gap-1">
-        <div className="relative h-5 w-5 rounded-full border-2 border-tb-blue">
-          <div className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-tb-yellow" />
-        </div>
-        <div className="leading-none">
-          <div className="text-[8px] font-bold text-tb-blue">ቴሌብር</div>
-          <div className="text-[9px] font-extrabold italic text-tb-yellow">telebirr</div>
-        </div>
-      </div>
+    <div className="flex h-[42px] shrink-0 items-center justify-between bg-tb-surface px-3">
+      <img src={ethioLogo.url} alt="ethio telecom" className="h-[28px] w-auto object-contain" />
+      <img src={telebirrLogo.url} alt="telebirr" className="h-[26px] w-auto object-contain" />
     </div>
   );
 }
@@ -59,17 +48,7 @@ export function TopBar({ title, onBack, right }: { title: string; onBack: () => 
 
 export function Banner({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative flex h-[90px] items-center overflow-hidden rounded-lg bg-[linear-gradient(120deg,var(--tb-banner),var(--tb-banner-2)_55%,var(--tb-banner))] px-5 ${className}`}>
-      <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle,rgb(255_255_255/.5)_1px,transparent_1px)] [background-size:12px_12px]" />
-      <div className="relative">
-        <div className="text-[11px] font-bold text-tb-green">✳ ዘመን</div>
-        <div className="text-[22px] font-extrabold leading-none text-tb-surface">
-          Zemen<span className="text-tb-green">GEBEYA</span>
-        </div>
-        <div className="mt-1 text-[7px] text-tb-surface/80">Where Ethiopia Shops Digitally</div>
-      </div>
-      <div className="relative ml-auto h-[78px] w-10 rotate-6 rounded-md border-2 border-tb-frame bg-[linear-gradient(var(--tb-orange),var(--tb-green))]" />
-    </div>
+    <img src={zemenBanner.url} alt="Zemen Gebeya — Where Ethiopia Shops Digitally" className={`block aspect-[560/165] w-full rounded-[8px] object-cover ${className}`} />
   );
 }
 

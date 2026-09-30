@@ -145,23 +145,25 @@
 
 /* telebirr demo wallet tokens */
 :root {
-  --tb-green: #8cc63f;
-  --tb-green-dark: #6fa82a;
-  --tb-green-soft: #e3efd0;
-  --tb-blue: #1a8cd8;
-  --tb-blue-soft: #c9dff0;
-  --tb-yellow: #f7b500;
-  --tb-orange: #f5a623;
-  --tb-bg: #f2f2f2;
-  --tb-surface: #ffffff;
-  --tb-text: #1d1d1d;
-  --tb-muted: #8a8a8a;
-  --tb-line: #e6e6e6;
-  --tb-danger: #e5484d;
-  --tb-overlay: rgb(0 0 0 / 0.45);
-  --tb-frame: #1c1f22;
-  --tb-banner: #0b3d24;
-  --tb-banner-2: #0f5a33;
+  --tb-green: oklch(0.76 0.17 128);
+  --tb-green-dark: oklch(0.63 0.16 128);
+  --tb-green-soft: oklch(0.93 0.06 128);
+  --tb-blue: oklch(0.58 0.15 241);
+  --tb-blue-soft: oklch(0.88 0.05 241);
+  --tb-yellow: oklch(0.83 0.16 82);
+  --tb-orange: oklch(0.79 0.15 75);
+  --tb-bg: oklch(0.978 0.002 260);
+  --tb-surface: oklch(1 0 0);
+  --tb-text: oklch(0.23 0.005 260);
+  --tb-muted: oklch(0.61 0.005 260);
+  --tb-line: oklch(0.91 0.005 260);
+  --tb-danger: oklch(0.6 0.19 25);
+  --tb-overlay: oklch(0 0 0 / 45%);
+  --tb-frame: oklch(0.18 0.005 260);
+  --tb-nav: oklch(0 0 0);
+  --tb-nav-handle: oklch(0.46 0 0);
+  --tb-banner: oklch(0.32 0.08 165);
+  --tb-banner-2: oklch(0.42 0.1 165);
 }
 @theme inline {
   --color-tb-green: var(--tb-green);
@@ -179,13 +181,17 @@
   --color-tb-danger: var(--tb-danger);
   --color-tb-overlay: var(--tb-overlay);
   --color-tb-frame: var(--tb-frame);
+  --color-tb-nav: var(--tb-nav);
+  --color-tb-nav-handle: var(--tb-nav-handle);
   --font-app: "Nunito Sans", system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
 }
 .tap { transition: transform .08s, filter .08s; -webkit-tap-highlight-color: transparent; }
 .tap:active { transform: scale(.96); filter: brightness(.94); }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { scrollbar-width: none; }
 .tb-waves { background-image: repeating-radial-gradient(circle at 80% 20%, rgb(255 255 255 / .09) 0 1px, transparent 1px 14px); }
+.font-hand { font-family: var(--font-hand); }
 @keyframes tb-up { from { transform: translateY(100%); } to { transform: translateY(0); } }
 @keyframes tb-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes tb-pop { from { opacity: 0; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }

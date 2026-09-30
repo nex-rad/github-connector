@@ -9,9 +9,5 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-# Project rules
-
-- Wallet app is one route (`/`) with an in-memory screen stack in `src/wallet/WalletApp.tsx` — feels native, overlays keep the previous screen visible.
-- All demo state lives in `src/wallet/store.tsx` via React context + localStorage — no backend, no real money.
-- Fees: service fee 1.00 ETB, disaster fee = 1% of (amount + service fee), rounded to cents — matches reference screenshots (12 → 13.13).
-- Colors come from `--tb-*` tokens in `src/styles.css` — keep telebirr green/blue consistent.
+The root page presents the existing Telebirr simulated wallet inside a phone-sized shell; preserve its local-only demo transactions and navigation because this project does not connect to a live wallet service.
+Reference artwork extracted from the uploaded PDF is stored as CDN asset pointers in src/assets and rendered as images rather than redrawn, to preserve the supplied visual details.

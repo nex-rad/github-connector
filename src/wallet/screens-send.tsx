@@ -4,6 +4,7 @@ import { QRCodeSVG } from "qrcode.react";
 import { Avatar, Banner, Keypad, StatusBar, TopBar } from "./ui";
 import { CONTACTS, DEMO_PIN, fees, fmt, nowStamp, txNumber, useWallet, type Contact, type Tx } from "./store";
 import type { Nav } from "./WalletApp";
+import successBanner from "@/assets/zemen-success-banner.jpg.asset.json";
 
 export function IndividualScreen({ nav }: { nav: Nav }) {
   const [num, setNum] = useState("");
@@ -205,32 +206,32 @@ export function ReceiptScreen({ nav, tx, fromHistory }: { nav: Nav; tx: Tx; from
   const [toast, setToast] = useState("");
   const flash = (m: string) => { setToast(m); setTimeout(() => setToast(""), 1600); };
   return (
-    <div className="relative flex h-full flex-col bg-tb-surface">
+    <div className="relative flex h-full flex-col bg-tb-surface font-hand">
       <StatusBar />
-      <div className="flex items-center justify-between px-3 pt-3 text-[11px] text-tb-green">
-        <button onClick={() => flash("Receipt saved (demo)")} className="tap flex items-center gap-1"><Download size={13} /> Download</button>
-        <button onClick={() => flash("Share sheet (demo)")} className="tap flex items-center gap-1"><Share2 size={13} /> Share</button>
+      <div className="flex h-[67px] shrink-0 items-center justify-between px-3 pt-3 text-[23px] text-tb-green-dark">
+        <button onClick={() => flash("Receipt saved (demo)")} className="tap flex items-center gap-2"><Download size={19} strokeWidth={1.5} /> Download</button>
+        <button onClick={() => flash("Share sheet (demo)")} className="tap flex items-center gap-2"><Share2 size={19} strokeWidth={1.5} /> Share</button>
       </div>
-      <div className="no-scrollbar flex-1 overflow-y-auto px-6">
-        <div className="mt-2 flex flex-col items-center">
-          <div className="anim-pop flex h-11 w-11 items-center justify-center rounded-full bg-tb-green"><Check size={26} strokeWidth={3} className="text-tb-surface" /></div>
-          <div className="mt-2 text-[11px] text-tb-green">Successful</div>
+      <div className="no-scrollbar min-h-0 flex-1 overflow-y-auto px-3">
+        <div className="mt-1 flex flex-col items-center">
+          <div className="anim-pop flex h-[51px] w-[51px] items-center justify-center rounded-full bg-tb-green"><Check size={34} strokeWidth={3} className="text-tb-surface" /></div>
+          <div className="mt-1 text-[24px] leading-7 text-tb-green-dark">Successful</div>
         </div>
-        <div className="mt-16 text-center text-[26px] font-semibold text-tb-text">-{fmt(tx.total)} <span className="text-[9px] font-normal">(ETB)</span></div>
-        <div className="mt-10 space-y-4 border-t border-tb-line pt-3 text-[10px]">
-          <Row l="Transaction Time:" v={tx.time} />
-          <Row l="Transaction Type:" v={tx.type} />
-          <Row l="Transaction To:" v={tx.to} />
-          <Row l="Transaction Number:" v={tx.id} />
+        <div className="mt-[75px] text-center text-[40px] leading-[48px] font-semibold text-tb-text">-{fmt(tx.total)} <span className="text-[19px] font-normal">(ETB)</span></div>
+        <div className="mx-5 mt-[40px] space-y-2 border-t border-tb-line pt-2 text-[20px] leading-[25px]">
+          <ReceiptRow label="Transaction Time:" value={tx.time} />
+          <ReceiptRow label="Transaction Type:" value={tx.type} />
+          <ReceiptRow label="Transaction To:" value={tx.to} />
+          <ReceiptRow label="Transaction Number:" value={tx.id} />
         </div>
-        <button onClick={() => setQr(true)} className="tap ml-auto mt-3 flex items-center gap-1 text-[11px] text-tb-green"><QrCode size={16} /> QR Code</button>
-        <Banner className="-mx-4 mt-3" />
-        <div className="mt-2 flex justify-center gap-1">
-          <span className="h-1.5 w-1.5 rounded-full border border-tb-green" /><span className="h-1.5 w-1.5 rounded-full bg-tb-green" /><span className="h-1.5 w-1.5 rounded-full border border-tb-green" />
+        <button onClick={() => setQr(true)} className="tap ml-auto mr-5 mt-3 flex items-center gap-1 text-[22px] text-tb-green-dark"><QrCode size={20} strokeWidth={2} /> QR Code</button>
+        <img src={successBanner.url} alt="Zemen Gebeya — Where Ethiopia Shops Digitally" className="mt-4 aspect-[560/165] w-full rounded-[8px] object-cover" />
+        <div className="mt-4 flex justify-center gap-1">
+          <span className="h-2 w-2 rounded-full border border-tb-green" /><span className="h-2 w-2 rounded-full bg-tb-green" /><span className="h-2 w-2 rounded-full border border-tb-green" />
         </div>
       </div>
-      <div className="flex justify-center pb-6 pt-3">
-        <button onClick={() => (fromHistory ? nav.back() : nav.root("home"))} className="tap h-9 w-[140px] rounded-md bg-tb-green text-[14px] font-semibold text-tb-surface shadow">Finished</button>
+      <div className="flex shrink-0 justify-center pb-8 pt-3">
+        <button onClick={() => (fromHistory ? nav.back() : nav.root("home"))} className="tap h-[42px] w-[172px] rounded-[8px] bg-tb-green text-[27px] font-semibold text-tb-surface shadow">Finished</button>
       </div>
       {qr && (
         <div className="anim-fade absolute inset-0 z-20 flex items-center justify-center bg-tb-overlay" onClick={() => setQr(false)}>
@@ -243,4 +244,8 @@ export function ReceiptScreen({ nav, tx, fromHistory }: { nav: Nav; tx: Tx; from
       {toast && <div className="anim-fade absolute bottom-24 left-1/2 -translate-x-1/2 rounded-full bg-tb-text/85 px-4 py-2 text-[12px] text-tb-surface">{toast}</div>}
     </div>
   );
+}
+
+function ReceiptRow({ label, value }: { label: string; value: string }) {
+  return <div className="flex min-h-[25px] items-start justify-between gap-2"><span className="shrink-0 text-tb-muted">{label}</span><span className="min-w-0 break-words text-right text-tb-text">{value}</span></div>;
 }
